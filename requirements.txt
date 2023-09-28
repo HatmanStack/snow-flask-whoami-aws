@@ -1,0 +1,6 @@
+Flask
+docutils
+pandas
+zappa
+snowflake-connector-python
+tk
