@@ -31,4 +31,4 @@ Select the defaults and add this line to zappa_settings.json replaceing `Snowfla
 ```
 
 
-The service is now built and deployed.  If you'd like to make changes use `zappa update`.
+The service is now built and deployed.  If you'd like to make changes use `zappa update`. The routes for the static content is hardcoded in the templates directory with /dev/{route}.  If you choose to change the stage make sure to change the hardcoded routes to reflect the new stage.

@@ -3,10 +3,9 @@ from snowflake import connector
 import pandas as pd
 import os
 
-
 app = Flask(__name__)
 
-stage_name = request.path.split('/')[1] #Can sometimes be different if you run into troubles try hardcoding
+stage_name = "dev" #Can sometimes be different if you run into troubles try hardcoding
 
 @app.route('/')
 def homepage():
@@ -15,16 +14,16 @@ def homepage():
     data4chartsJSON = data4charts.to_json(orient='records')
     return render_template('charts.html', data4chartsJSON=data4chartsJSON)
 
-@app.route(f'/{stage_name}/submit')
+@app.route('/submit')
 def submitpage():
     return render_template('submit.html')
 
-@app.route(f'/{stage_name}/harddata')
+@app.route('/harddata')
 def hardData():
     dfhtml = updateRows().to_html()
     return render_template('index.html', dfhtml=dfhtml)
 
-@app.route(f'/{stage_name}/thanks4submit', methods=["POST"])
+@app.route('/thanks4submit', methods=["POST"])
 def thanks4submit():
     address = request.form.get("cname")
     name = request.form.get("uname")
