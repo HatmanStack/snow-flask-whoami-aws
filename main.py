@@ -39,16 +39,14 @@ cnx = connector.connect(
     password= os.environ.get('PASSWORD'),
     warehouse='COMPUTE_WH',
     database='DEMO_DB',
-    schema='PUBLIC',
-    role='ACCOUNTADMIN'
+    schema='PUBLIC'
 )
 
 
 def insertRow(address, name):
     cur = cnx.cursor()
-    updateString = "INSERT INTO ADDRESSES(ADDRESS, NAME) VALUES ('{}', '{}')".format(address, name)
-    print(updateString)
-    cur.execute(updateString)
+    update_query = "INSERT INTO ADDRESSES(ADDRESS, NAME) VALUES (%s, %s)"
+    cur.execute(update_query, (address, name))
 
 def updateRows():
     cur = cnx.cursor()
