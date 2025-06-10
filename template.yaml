@@ -6,27 +6,8 @@ Description: >
 Globals:
   Function:
     Timeout: 30
-    Environment:
-      Variables:
-        USERNAME: !Ref SnowflakeUsername
-        PASSWORD: !Ref SnowflakePassword
-        REGION: !Ref SnowflakeRegion
-
-Parameters:
-  SnowflakeUsername:
-    Type: String
-    Description: Snowflake username
-    NoEcho: false
   
-  SnowflakePassword:
-    Type: String
-    Description: Snowflake password
-    NoEcho: true
-  
-  SnowflakeRegion:
-    Type: String
-    Description: Snowflake region
-    Default: us-west-1
+        
 
 Resources:
   SnowFlaskFunction:
@@ -34,7 +15,7 @@ Resources:
     Properties:
       CodeUri: ./
       Handler: handler.lambda_handler
-      Runtime: python3.9
+      Runtime: python3.11
       Architectures:
         - x86_64
       Events:

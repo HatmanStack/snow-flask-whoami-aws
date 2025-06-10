@@ -3,7 +3,9 @@ from snowflake import connector
 import pandas as pd
 import os
 import json
-import aws_wsgi
+import awsgi
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -41,10 +43,10 @@ def thanks4submit():
     
 # Snowflake connection
 cnx = connector.connect(
-    account=os.environ.get('REGION'),
-    user=os.environ.get('USERNAME'),
+    account=os.environ.get('SNOW_ACCOUNT'),
+    user=os.environ.get('SNOW_USERNAME'),
     private_key_file='rsa_key.p8',
-    private_key_file_pwd=os.environ.get('PASSWORD'),
+    private_key_file_pwd=os.environ.get('SNOW_PASSWORD'),
     warehouse='COMPUTE_WH',
     database='DEMO_DB',
     schema='PUBLIC',
@@ -65,4 +67,4 @@ def updateRows():
 
 # AWS Lambda handler
 def lambda_handler(event, context):
-    return aws_wsgi.response(app, event, context)
+    return awsgi.response(app, event, context)

@@ -1,1 +1,5 @@
 rsa_key.p8
+.env
+.aws-sam
+.venv
+env_file.json

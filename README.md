@@ -3,7 +3,7 @@
 A serverless Flask application deployed on AWS Lambda with API Gateway, featuring interactive Three.js visualizations and real-time Snowflake database connectivity.
 
 ## 🚀 Live Application
-**URL**: https://akxv1pi5yc.execute-api.us-west-1.amazonaws.com/dev
+**URL**: https://efgl5d8ao9.execute-api.us-west-2.amazonaws.com/Prod
 
 ## ✨ Features
 
@@ -54,8 +54,8 @@ aws sts get-caller-identity
 
 ### 2. Clone and Prepare
 ```bash
-git clone https://github.com/HatmanStack/snow-flask-whoami.git
-cd snow-flask-whoami/snow-flask-whoami-aws/
+git clone https://github.com/HatmanStack/snow-flask-whoami-aws.git
+cd snow-flask-whoami-aws
 ```
 
 ### 3. Configure Snowflake Authentication
@@ -80,7 +80,7 @@ sam deploy --guided
 
 **Deployment Parameters:**
 - **Stack Name**: `snow-flask-whoami-aws`
-- **AWS Region**: `us-west-1` (or your preferred region)
+- **AWS Region**: `us-west-2` (or your preferred region)
 - **Snowflake Username**: Your service account username
 - **Snowflake Password**: Your private key passphrase
 - **Snowflake Region**: Your Snowflake account region
@@ -120,7 +120,8 @@ python -m flask run --port 8000
 sam local start-api --port 3000
 
 # Option 3: Lambda handler testing
-sam local invoke SnowflakeFlaskFunction
+sam build --use-container
+sam local invoke SnowFlaskFunction
 ```
 
 ## 📊 Monitoring & Troubleshooting
@@ -128,7 +129,7 @@ sam local invoke SnowflakeFlaskFunction
 ### CloudWatch Logs
 ```bash
 # View recent logs
-sam logs -n SnowflakeFlaskFunction --stack-name snow-flask-whoami-aws --tail
+sam logs -n SnowFlaskFunction --stack-name snow-flask-whoami-aws --tail
 
 # View logs for specific time period
 aws logs describe-log-groups --log-group-name-prefix /aws/lambda/snow-flask-whoami

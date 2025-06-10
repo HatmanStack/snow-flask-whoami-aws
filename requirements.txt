@@ -1,5 +1,6 @@
-Flask
+flask
 pandas
 snowflake-connector-python
-Werkzeug
 aws-wsgi
+numpy==1.26.4
+python-dotenv
