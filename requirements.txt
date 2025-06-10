@@ -1,6 +1,5 @@
-Flask
-docutils
-pandas
-zappa
-snowflake-connector-python
-tk
+Flask==2.0.1
+pandas==1.4.4
+snowflake-connector-python==2.8.0
+Werkzeug==2.2.2
+aws-wsgi==0.2.7
