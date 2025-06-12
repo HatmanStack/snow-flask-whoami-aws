@@ -27,7 +27,7 @@ A serverless Flask application deployed on AWS Lambda with API Gateway, featurin
 ### Services Used
 | Service | Purpose | Configuration |
 |---------|---------|---------------|
-| **AWS Lambda** | Serverless compute | Python 3.9 runtime, Flask handler |
+| **AWS Lambda** | Serverless compute | Python 3.11 runtime, Flask handler |
 | **API Gateway** | HTTP endpoints | REST API with proxy integration |
 | **CloudFormation** | Infrastructure as Code | SAM template deployment |
 | **CloudWatch** | Logging & monitoring | Automatic log retention |
@@ -36,7 +36,7 @@ A serverless Flask application deployed on AWS Lambda with API Gateway, featurin
 
 - **AWS CLI** (v2.0+) - [Installation Guide](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html)
 - **AWS SAM CLI** (v1.50+) - [Installation Guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
-- **Python 3.9+** with pip
+- **Python 3.11+** with pip
 - **Snowflake account** with database access
 - **AWS account** with appropriate IAM permissions
 
@@ -179,3 +179,6 @@ For automated deployments, consider integrating with:
 - **GitHub Actions** with AWS credentials
 - **AWS CodePipeline** for full CI/CD
 - **SAM CLI** in build scripts
+
+### Notes
+Using this method with a sam api gateway deployment causes the route name to be changed.  Alter the routes in the .html files to reflect that change, in this case '/Prod' was added.
