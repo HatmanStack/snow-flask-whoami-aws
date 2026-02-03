@@ -5,6 +5,8 @@ A serverless Flask application deployed on AWS Lambda with API Gateway, featurin
 ## 🚀 Live Application
 **URL**: https://efgl5d8ao9.execute-api.us-west-2.amazonaws.com/Prod
 
+** THIS REPO IS NO LONGER MAINTAINED **
+
 ## ✨ Features
 
 ### Interactive Visualizations
