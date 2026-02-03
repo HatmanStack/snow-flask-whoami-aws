@@ -1,6 +1,7 @@
 """AWS Lambda entry point for snow-flask-whoami."""
-import sys
+
 import os
+import sys
 
 # Add parent directory to path for snow_flask_core imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
